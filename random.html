@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <link rel="stylesheet" href="Assets/css/all.min.css" />
+
+  <style> 
+    body {
+      background-color: black;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    h1,
+    p {
+      color: rgb(213, 210, 210);
+    }
+
+    .big {
+      font-size: 6rem;
+    }
+
+    p {
+      font-size: x-large;
+    }
+
+    .btn {
+      background-color: rgb(6, 101, 195);
+      color: #fff;
+      border: none;
+      border-radius: 25px;
+      padding: 12px;
+      margin: 25px 30%;
+      width: 40vw;
+    }
+
+    .btn:hover{
+        background-color: rgb(5, 75, 145);
+    }
+
+    .dropdown {
+      background-color: rgb(45, 39, 39);
+      width: 50vw;
+      height: 35vh;
+      border-radius: 15px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    .collapsible {
+      position: relative;
+      cursor: pointer;
+      font-size: 25px;
+    }
+
+    /* .active {
+      background-color: #555;
+    } */
+
+    .content {
+      padding: 0 18px;
+      background-color: white;
+      max-height: 0;
+      overflow: hidden;
+      /* display: none; */
+      transition:  0.2s ease-out;
+    }
+
+    .right {
+      position: absolute;
+      right: 20px;
+      color: blue;
+    }
+
+    .center {
+      text-align: center;
+      margin-bottom: 5vh;
+    }
+
+    .app {
+      margin-top: 15vh;
+    }
+
+    .scan {
+      color: #555;
+    }
+
+    
+  </style>
+
+  <body>
+    <section class="app">
+      <div class="center">
+        <h1><span class="big">180</span> MB Junk</h1>
+        <p class="scan">scanning...</p>
+      </div>
+
+      <div class="dropdown">
+        <h1 class="collapsible">
+         Cache junk <i class="fa-solid fa-check right"></i>
+        </h1>
+        <div class="content">
+          <p>Lorem ipsum...</p>
+        </div>
+
+        <h1 class="collapsible">
+          Residual junk <i class="fa-solid fa-check right"></i>
+        </h1>
+        <div class="content">
+          <p>Lorem ipsum...</p>
+        </div>
+
+        <h1 class="collapsible">
+          Clean Up Package <i class="fa-solid fa-check right"></i>
+        </h1>
+        <div class="content">
+          <p>Lorem ipsum...</p>
+        </div>
+
+        <h1 class="collapsible">
+          System Junk <i class="fa-solid fa-check right"></i>
+        </h1>
+        <div class="content">
+          <p>Lorem ipsum...</p>
+        </div>
+      </div>
+
+      <button class="btn">scanning (80%)</button>
+    </section>
+  </body>
+
+  <script>
+    // var collapsible = document.querySelector(".collapsible").length;
+
+    // for (var i = 0; i < collapsible; i++) {
+    //   collapsible[i].addEventListner("click", () => {
+    //     var buttonInnerHTML = this.innerHTML;
+
+    //     cont(buttonInnerHTML);
+
+    //   });
+    // }
+
+    // function cont() {
+    //     var content = document.querySelector(".content");
+    //     content.style.overflow="visible";
+    //     content.style.transition="0.3s"
+    //     content.style.background="white";
+    //     content.style.color="black";
+    //     content.style.padding="12px";
+    //     content.style.margin="10px";
+    // }
+
+    var coll = document.getElementsByClassName("collapsible");
+    var i;
+
+    for (i = 0; i < coll.length; i++) {
+      coll[i].addEventListener("click", function () {
+        this.classList.toggle("active");
+        var content = this.nextElementSibling;
+        if (content.style.maxHeight) {
+          content.style.maxHeight = null;
+        } else {
+          content.style.maxHeight = content.scrollHeight + "px";
+        }
+      });
+    }
+
+  </script>
+</html>
