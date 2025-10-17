@@ -57,3 +57,30 @@ function makeSound(key){
         break;
     }
 }
+
+
+
+// =====================
+// jQuery Integration 👇
+// =====================
+
+// Wait for document ready (ensures DOM is loaded)
+$(document).ready(function () {
+  // jQuery click event for same buttons
+  $(".drum").click(function () {
+    let buttonInnerHTML = $(this).html(); // $(this) refers to the clicked drum
+    makeSound(buttonInnerHTML); // You can reuse the vanilla JS function
+
+    // Add a quick animation (using jQuery)
+    $(this).fadeOut(100).fadeIn(100);
+  });
+
+  // Example: add jQuery animation for key press
+  $(document).keydown(function (event) {
+    var activeButton = $("." + event.key);
+    activeButton.addClass("pressed");
+    setTimeout(function () {
+      activeButton.removeClass("pressed");
+    }, 100);
+  });
+});

@@ -79,3 +79,9 @@ background-image: url("images/kick.png");
   margin: 10px;
   background-color: white;
 }
+
+.pressed {
+  box-shadow: 0 3px 4px #dbedf3;
+  opacity: 0.5;
+  transform: scale(0.98);
+}
